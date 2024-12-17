@@ -1,4 +1,4 @@
-@import "./base/index";
-@import "./components/index";
-@import "./layouts/index";
-@import "./pages/index";
+@forward "./base/index";
+@use "./components/index";
+@use "./layouts/index";
+@use "./pages/index";

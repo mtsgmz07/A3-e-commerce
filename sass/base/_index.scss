@@ -1,4 +1,4 @@
-@import "./normalize";
-@import "./reset";
-@import "./variables";
-@import "./common";
+@use "./normalize";
+@use "./reset";
+@use "variables";
+@use "./common";

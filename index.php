@@ -1,16 +1,18 @@
 <?php
 
-require_once("./vendor/autoload.php");
+require_once "./vendor/autoload.php";
 
 $request = $_SERVER['REQUEST_URI'];
 
-$loader = new \Twig\Loader\FilesystemLoader('./views');
+$loader = new \Twig\Loader\FilesystemLoader('src/views');
 $twig = new \Twig\Environment($loader);
+
+use App\Controllers\ProductController;
 
 switch ($request) {
     case '':
     case '/':
-        echo $twig->render('home.twig');
+        echo (new ProductController())->getAllProducts();
         break;
 
     case '/crew':

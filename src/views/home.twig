@@ -1,0 +1,17 @@
+{% include './includes/header.twig' %}
+
+<main class="home-page">
+  <div class="home-page__main-content">
+    <p>E-commerce webpage</p>
+    <div class="gridContainer">
+      {% for product in allProducts %}
+        <div>
+          <p>name : {{ product.name }}</p>
+          <p>description : {{ product.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+{% include './includes/footer.twig' %}
