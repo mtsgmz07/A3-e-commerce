@@ -2,37 +2,50 @@
 
 namespace App\Models;
 
-use App\Controllers\Database;
-
-class Product {
-    private $db;
+class Product
+{
     private $id;
     private $name;
     private $price;
     private $description;
 
-
-    public function __construct() {
-        $this->db = Database::getInstance();
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
-    public function getAllProducts() {
-        return $this->db->read("product", [], "");
+    public function getId(): int
+    {
+        return $this->id;
     }
 
-    public function createProduct() {
-        return $this->db->create("product", ["name" => "T-shirt", "price" => 12, "description" => "test", "categoryId" => 1, "brandId" => 1]);
+    public function setName(string $name): void
+    {
+        $this->name = $name;
     }
 
-    public function selectProduct() {
-        return $this->db->read("product", [], "");
+    public function getName(): string
+    {
+        return $this->name;
     }
 
-    public function deleteProduct() {
-        return $this->db->delete("product", "description = 'test'");
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
     }
 
-    public function updateProduct() {
-        return $this->db->update("product", ["name" => "salut"], "id = 1");
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
     }
 }

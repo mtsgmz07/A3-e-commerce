@@ -5,31 +5,22 @@ namespace App\Models;
 use App\Controllers\Database;
 
 class Color {
-    private $db;
     private $id;
     private $name;
 
-    public function __construct() {
-        $this->db = Database::getInstance();
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
-    public function getAllColors(): array|bool {
-        return $this->db->read("color", [], "");
+    public function getId(): int {
+        return $this->id;
     }
 
-    public function createColor(): void {
-        return $this->db->create("color", ["name" => "Rouge"]);
+    public function setName(string $name): void {
+        $this->name = $name;
     }
 
-    public function selectColor(): array|bool {
-        return $this->db->read("color", [], "");
-    }
-
-    public function deleteProduct(): bool {
-        return $this->db->delete("color", "name = 'Rouge'");
-    }
-
-    public function updateProduct(): bool {
-        return $this->db->update("color", ["name" => "Rouge"], "name = 'Vert'");
+    public function getName(): string {
+        return $this->name;
     }
 }

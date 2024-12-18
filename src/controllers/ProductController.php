@@ -2,16 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Models\Product;
+use App\Repository\ProductRepository;
+
 use App\Controllers\Controller;
 
 class ProductController extends Controller
 {
-    private $product;
+    private $productRepository;
     public function __construct()
     {
         parent::__construct();
-        $this->product = new Product();
+        $this->productRepository = new ProductRepository();
     }
 
     // public function index()
@@ -22,28 +23,28 @@ class ProductController extends Controller
     public function getAllProducts()
     {
         $name = "Matisse";
-        $allProducts = $this->product->getAllProducts();
+        $allProducts = $this->productRepository->getAllProducts();
         return  $this->render("home.twig", ["allProducts" => $allProducts]);
     }
 
     public function execCreateProduct(): bool
     {
-        $this->product->createProduct();
+        $this->productRepository->createProduct();
         return true;
     }
 
     public function execSelectProduct()
     {
-        return $this->product->selectProduct();
+        return $this->productRepository->selectProduct();
     }
 
     public function execDeleteProduct()
     {
-        return $this->product->deleteProduct();
+        return $this->productRepository->deleteProduct();
     }
 
     public function execUpdateProduct(): bool
     {
-        return $this->product->updateProduct();
+        return $this->productRepository->updateProduct();
     }
 }

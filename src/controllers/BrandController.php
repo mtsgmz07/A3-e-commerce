@@ -2,43 +2,43 @@
 
 namespace App\Controllers;
 
-use App\Models\Brand;
+use App\Repository\BrandRepository;
 use App\Controllers\Controller;
 
 class BrandController extends Controller
 {
-    private $brand;
+    private $brandRepository;
     public function __construct()
     {
         parent::__construct();
-        $this->brand = new Brand();
+        $this->brandRepository = new BrandRepository();
     }
 
     public function getAllAddresses()
     {
         $name = "Matisse";
-        $allBrands = $this->brand->getAllBrand();
+        $allBrands = $this->brandRepository->getAllBrand();
         return  $this->render("home.twig", ["allBrands" => $allBrands]);
     }
 
     public function execCreateBrand(): bool
     {
-        $this->brand->createBrand();
+        $this->brandRepository->createBrand();
         return true;
     }
 
     public function execSelectBrand(): array|bool
     {
-        return $this->brand->selectBrand();
+        return $this->brandRepository->selectBrand();
     }
 
     public function execDeleteBrand(): mixed
     {
-        return $this->brand->deleteBrand();
+        return $this->brandRepository->deleteBrand();
     }
 
     public function execUpdateBrand(): bool
     {
-        return $this->brand->updateBrand();
+        return $this->brandRepository->updateBrand();
     }
 }

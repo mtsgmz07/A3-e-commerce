@@ -2,35 +2,23 @@
 
 namespace App\Models;
 
-use App\Controllers\Database;
-
 class Brand {
-    private $db;
     private $id;
     private $name;
 
-
-    public function __construct() {
-        $this->db = Database::getInstance();
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
-    public function getAllBrand(): array|bool {
-        return $this->db->read("address", [], "");
+    public function getId(): int {
+        return $this->id;
     }
 
-    public function createBrand(): void {
-        return $this->db->create("brand", ["name" => "Nike"]);
+    public function setName(string $name): void {
+        $this->name = $name;
     }
 
-    public function selectBrand(): array|bool {
-        return $this->db->read("brand", [], "");
-    }
-
-    public function deleteBrand(): bool {
-        return $this->db->delete("brand", "id = 1");
-    }
-
-    public function updateBrand(): bool {
-        return $this->db->update("brand", ["name" => "Adidas"], "name = 'Nike'");
+    public function getName(): string {
+        return $this->name;
     }
 }

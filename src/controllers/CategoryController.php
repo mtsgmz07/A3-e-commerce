@@ -2,43 +2,43 @@
 
 namespace App\Controllers;
 
-use App\Models\Category;
+use App\Repository\CategoryRepository;
 use App\Controllers\Controller;
 
 class CategoryController extends Controller
 {
-    private $category;
+    private $categoryRepository;
     public function __construct()
     {
         parent::__construct();
-        $this->category = new Category();
+        $this->categoryRepository = new CategoryRepository();
     }
 
     public function getAllCategorys()
     {
         $name = "Matisse";
-        $allCategorys = $this->category->getAllCategory();
+        $allCategorys = $this->categoryRepository->getAllCategory();
         return  $this->render("home.twig", ["allCategorys" => $allCategorys]);
     }
 
     public function execCreateCategory(): bool
     {
-        $this->category->createCategory();
+        $this->categoryRepository->createCategory();
         return true;
     }
 
     public function execSelectCategory(): array|bool
     {
-        return $this->category->selectCategory();
+        return $this->categoryRepository->selectCategory();
     }
 
     public function execDeleteCategory(): mixed
     {
-        return $this->category->deleteCategory();
+        return $this->categoryRepository->deleteCategory();
     }
 
     public function execUpdateCategory(): bool
     {
-        return $this->category->updateCategory();
+        return $this->categoryRepository->updateCategory();
     }
 }

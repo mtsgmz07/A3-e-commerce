@@ -2,43 +2,43 @@
 
 namespace App\Controllers;
 
-use App\Models\Order;
+use App\Repository\OrderRepository;
 use App\Controllers\Controller;
 
 class OrderController extends Controller
 {
-    private $order;
+    private $orderRepository;
     public function __construct()
     {
         parent::__construct();
-        $this->order = new Order();
+        $this->orderRepository = new OrderRepository();
     }
 
     public function getAllOrders()
     {
         $name = "Matisse";
-        $allProducts = $this->order->getAllOrders();
+        $allProducts = $this->orderRepository->getAllOrders();
         return  $this->render("home.twig", ["allProducts" => $allProducts]);
     }
 
     public function execCreateOrder(): bool
     {
-        $this->order->createOrder();
+        $this->orderRepository->createOrder();
         return true;
     }
 
     public function execSelectOrder()
     {
-        return $this->order->selectOrder();
+        return $this->orderRepository->selectOrder();
     }
 
     public function execDeleteOrder()
     {
-        return $this->order->deleteOrder();
+        return $this->orderRepository->deleteOrder();
     }
 
     public function execUpdateOrder(): bool
     {
-        return $this->order->updateProduct();
+        return $this->orderRepository->updateProduct();
     }
 }

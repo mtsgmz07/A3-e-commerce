@@ -2,35 +2,23 @@
 
 namespace App\Models;
 
-use App\Controllers\Database;
-
 class Category {
-    private $db;
     private $id;
     private $name;
 
-
-    public function __construct() {
-        $this->db = Database::getInstance();
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
-    public function getAllCategory(): array|bool {
-        return $this->db->read("category", [], "");
+    public function getId(): int {
+        return $this->id;
     }
 
-    public function createCategory(): void {
-        return $this->db->create("category", ["name" => "Nike"]);
+    public function setName(string $name): void {
+        $this->name = $name;
     }
 
-    public function selectCategory(): array|bool {
-        return $this->db->read("category", [], "");
-    }
-
-    public function deleteCategory(): bool {
-        return $this->db->delete("name", "id = 1");
-    }
-
-    public function updateCategory(): bool {
-        return $this->db->update("brand", ["name" => "Tee-shirt"], "name = 'Basket'");
+    public function getName(): string {
+        return $this->name;
     }
 }

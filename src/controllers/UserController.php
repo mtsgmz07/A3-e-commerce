@@ -2,16 +2,16 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Repository\UserRepository;
 use App\Controllers\Controller;
 
 class UserController extends Controller
 {
-    private $user;
+    private $userRepository;
     public function __construct()
     {
         parent::__construct();
-        $this->user = new User();
+        $this->userRepository = new UserRepository();
     }
 
     // public function index()
@@ -22,28 +22,28 @@ class UserController extends Controller
     public function getAllUsers(): string
     {
         $name = "Matisse";
-        $allUsers = $this->user->getAllUsers();
+        $allUsers = $this->userRepository->getAllUsers();
         return  $this->render("home.twig", ["allUsers" => $allUsers]);
     }
 
     public function execCreateUser(): bool
     {
-        $this->user->createUser();
+        $this->userRepository->createUser();
         return true;
     }
 
     public function execSelectUser(): array|bool
     {
-        return $this->user->selectUser();
+        return $this->userRepository->selectUser();
     }
 
     public function execDeleteProduct(): bool
     {
-        return $this->user->deleteUser();
+        return $this->userRepository->deleteUser();
     }
 
     public function execUpdateProduct(): bool
     {
-        return $this->user->updateUser();
+        return $this->userRepository->updateUser();
     }
 }

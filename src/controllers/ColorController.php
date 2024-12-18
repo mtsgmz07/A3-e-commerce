@@ -2,43 +2,43 @@
 
 namespace App\Controllers;
 
-use App\Models\Color;
+use App\Repository\ColorRepository;
 use App\Controllers\Controller;
 
 class ColorController extends Controller
 {
-    private $color;
+    private $colorRepository;
     public function __construct()
     {
         parent::__construct();
-        $this->color = new Color();
+        $this->colorRepository = new ColorRepository();
     }
 
     public function getAllColors()
     {
         $name = "Matisse";
-        $allColors = $this->color->getAllColors();
+        $allColors = $this->colorRepository->getAllColors();
         return  $this->render("home.twig", ["allColors" => $allColors]);
     }
 
     public function execCreateColor(): bool
     {
-        $this->color->createColor();
+        $this->colorRepository->createColor();
         return true;
     }
 
     public function execSelectColor(): array|bool
     {
-        return $this->color->selectColor();
+        return $this->colorRepository->selectColor();
     }
 
     public function execDeleteColor(): mixed
     {
-        return $this->color->deleteProduct();
+        return $this->colorRepository->deleteProduct();
     }
 
     public function execUpdateColor(): bool
     {
-        return $this->color->updateProduct();
+        return $this->colorRepository->updateProduct();
     }
 }

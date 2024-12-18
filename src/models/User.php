@@ -5,35 +5,49 @@ namespace App\Models;
 use App\Controllers\Database;
 
 class User {
-    private $db;
     private $id;
     private $firstname;
     private $lastname;
     private $email;
     private $phone;
 
-
-    public function __construct() {
-        $this->db = Database::getInstance();
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
-    public function getAllUsers() {
-        return $this->db->read("user", [], "");
+    public function getId(): int {
+        return $this->id;
     }
 
-    public function createUser() {
-        return $this->db->create("user", ["firstname" => "Matisse", "lastname" => "Gomez", "email" => "matissegom@gmail.com", "phone" => "0606060606"]);
+    public function setFirstname(string $firstname): void {
+        $this->firstname = $firstname;
     }
 
-    public function selectUser() {
-        return $this->db->read("user", [], "");
+    public function getFirstname(): string {
+        return $this->firstname;
     }
 
-    public function deleteUser() {
-        return $this->db->delete("user", "id = 1");
+    public function setLastname(string $lastname): void {
+        $this->lastname = $lastname;
     }
 
-    public function updateUser() {
-        return $this->db->update("user", ["name" => "salut"], "id = 1");
+    public function getLastname(): string {
+        return $this->lastname;
+    }
+
+    public function setEmail(string $email): void {
+        $this->email = $email;
+    }
+
+    public function getEmail(): string {
+        return $this->email;
+    }
+
+    public function setPhone(string $phone): void {
+        $this->phone = $phone;
+    }
+
+    public function getPhone(): string {
+        return $this->phone;
     }
 }

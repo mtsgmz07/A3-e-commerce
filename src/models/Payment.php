@@ -2,44 +2,51 @@
 
 namespace App\Models;
 
-use App\Controllers\Database;
-
 class Payment
 {
-    private $db;
     private $id;
     private $method;
     private $status;
     private $date;
     private $orderId;
 
-    public function __construct()
-    {
-        $this->db = Database::getInstance();
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
-    public function getAllPayments(): array|bool
-    {
-        return $this->db->read("payment", [], "");
+    public function getId(): int {
+        return $this->id;
     }
 
-    public function creatPayment(): void
-    {
-        return $this->db->create("payment", ["userId" => 1]);
+    public function setMethod(string $method): void {
+        $this->method = $method;
     }
 
-    public function selectPayment(): array|bool
-    {
-        return $this->db->read("payment", [], "");
+    public function getMethod(): string {
+        return $this->method;
     }
 
-    public function deletePayment(): bool
-    {
-        return $this->db->delete("payment", "id = 1");
+    public function setStatus(string $status): void {
+        $this->status = $status;
     }
 
-    public function updatePayment(): bool
-    {
-        return $this->db->update("payment", ["method" => "visa"], "method = 'mastercard'");
+    public function getStatus(): string {
+        return $this->status;
+    }
+
+    public function setDate(string $date): void {
+        $this->date = $date;
+    }
+
+    public function getDate(): string {
+        return $this->date;
+    }
+
+    public function setOrderId(int $orderId): void {
+        $this->orderId = $orderId;
+    }
+
+    public function getOrderId(): int {
+        return $this->orderId;
     }
 }
