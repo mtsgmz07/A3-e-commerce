@@ -1,3 +1,7 @@
+@use "../base/variables" as variable;
+
+@use "../components/typographies" as mixins;
+
 .navigation {
     position: absolute;
     right: 0;
@@ -21,11 +25,11 @@
     }
 
     &__nav-item {
-        @include nav-text;
+        @include mixins.nav-text;
         margin-bottom: 32px;
 
         a {
-            color: $white;
+            color: variable.$white;
             text-decoration: none;
         }
     }

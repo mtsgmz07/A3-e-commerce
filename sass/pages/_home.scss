@@ -1,3 +1,6 @@
+@use "../base/variables" as variable;
+@use "../components/typographies" as mixins;
+
 .home-page::before {
   background-image: url('../../public/img/bg-home-mobile.jpg');
   background-repeat: no-repeat;
@@ -10,29 +13,29 @@
   width: 100vw;
   z-index: -1;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: variable.$tablet) {
     background-image: url('../../public/img/bg-home-tablet.jpg');
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: variable.$desktop) {
     background-image: url('../../public/img/bg-home-desktop.jpg');
     height: 100%;
   }
 }
 
 .home-page {
-  color: $white;
+  color: variable.$white;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   width: 90%;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: variable.$tablet) {
     max-width: 445px;
     padding-bottom: 130px;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: variable.$desktop) {
     max-width: 1440px;
     width: 80%;
     text-align: left;
@@ -44,19 +47,19 @@
   }
 
   &__main-content {
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: variable.$desktop) {
       width: 470px;
     }
   }
 
   &__first-paragraph {
-    @include heading-h5;
+    @include mixins.heading-h5;
 
     text-transform: uppercase;
   }
 
   &__main-title {
-    @include heading-h1;
+    @include mixins.heading-h1;
 
     margin-top: 0;
     margin-bottom: 0;
@@ -64,24 +67,24 @@
   }
 
   &__description {
-    @include body-text;
+    @include mixins.body-text;
 
     margin-bottom: 80px;
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: variable.$tablet) {
       margin-bottom: 156px;
     }
 
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: variable.$desktop) {
       margin-bottom: 0px;
     }
   }
 
   &__cta {
     align-items: center;
-    background-color: $white;
+    background-color: variable.$white;
     border-radius: 100%;
-    color: $vulcan;
+    color: variable.$vulcan;
     display: flex;
     font-size: 20px;
     height: 150px;
@@ -92,13 +95,13 @@
     text-transform: uppercase;
     width: 150px;
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: variable.$tablet) {
       height: 240px;
       width: 240px;
       font-size: 32px;
     }
 
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: variable.$desktop) {
       margin-right: 0;
     }
   }

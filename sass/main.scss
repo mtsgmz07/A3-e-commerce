@@ -1,4 +1,4 @@
 @forward "./base/index";
-@use "./components/index";
-@use "./layouts/index";
-@use "./pages/index";
+@forward "./components/index";
+@forward "./layouts/index";
+@forward "./pages/index";

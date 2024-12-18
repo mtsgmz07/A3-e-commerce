@@ -1,3 +1,6 @@
+@use "../base/variables" as variable;
+@use "../components/typographies" as mixins;
+
 .main-nav {
   align-items: center;
   display: flex;
@@ -10,23 +13,23 @@
   // For now, I keep this here before moving to general rules on the body
   padding-top: 24px;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: variable.$tablet) {
     margin-bottom: 112px;
   }
 
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: variable.$desktop) {
     margin-bottom: 0;
   }
 
     &__logo {
-    background-color: $white;
+    background-color: variable.$white;
     border-radius: 50%;
   }
 
   &__burger {
     cursor: pointer;
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: variable.$tablet) {
       display: none;
     }
   }
@@ -35,7 +38,7 @@
 .desktop-navigation {
   display: none;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: variable.$tablet) {
     display: block;
   }
 
@@ -47,10 +50,10 @@
   }
 
   &__nav-item {
-    @include nav-text;
+    @include mixins.nav-text;
 
     a {
-      color: $white;
+      color: variable.$white;
       text-decoration: none;
     }
   }
@@ -79,11 +82,11 @@
     }
 
     &__nav-item {
-        @include nav-text;
+        @include mixins.nav-text;
         margin-bottom: 32px;
 
         a {
-            color: $white;
+            color: variable.$white;
             text-decoration: none;
         }
     }
